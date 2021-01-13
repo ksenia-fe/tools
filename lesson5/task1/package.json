@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:scripts": "webpack ./src/index.js --mode=production",
-    "watch:scripts": "webpack ./src/index.js --mode=development --devtool eval-source-map -w"
+    "build:scripts": "webpack ./src/index.js -p",
+    "watch:scripts": "webpack ./src/index.js -d --devtool eval-source-map -w"
   },
   "keywords": [],
   "author": "",
