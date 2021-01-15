@@ -1,4 +1,4 @@
-import { getItem } from "./storage.js";
+import { getItem } from "./storage";
 import "./list.scss";
 
 const listElem = document.querySelector(".list");

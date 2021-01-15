@@ -1,8 +1,8 @@
-import { renderTasks } from "./list/render.js";
-import { getTasksList } from "./list/tasksGateway.js";
-import { setItem } from "./list/storage.js";
-import { onCreateTask } from "./list/addTask.js";
-import { doneOrDelete } from "./list/changeTask.js";
+import { renderTasks } from "./list/render";
+import { getTasksList } from "./list/tasksGateway";
+import { setItem } from "./list/storage";
+import { onCreateTask } from "./list/addTask";
+import { doneOrDelete } from "./list/changeTask";
 import "./index.scss";
 
 document.addEventListener("DOMContentLoaded", () => {
