@@ -1,42 +1,42 @@
-import { getItem } from "./storage";
-import "./list.scss";
+import { getItem } from './storage';
+import './list.scss';
 
-const listElem = document.querySelector(".list");
+const listElem = document.querySelector('.list');
 
 const createCheckbox = ({ done, id }) => {
-  const checkboxElem = document.createElement("input");
-  checkboxElem.setAttribute("type", "checkbox");
-  checkboxElem.setAttribute("data-id", id);
+  const checkboxElem = document.createElement('input');
+  checkboxElem.setAttribute('type', 'checkbox');
+  checkboxElem.setAttribute('data-id', id);
   checkboxElem.checked = done;
-  checkboxElem.classList.add("list-item__checkbox");
+  checkboxElem.classList.add('list-item__checkbox');
 
   return checkboxElem;
 };
 
 const createEl = ({ text, done, id }) => {
-  const listItemElem = document.createElement("li");
-  listItemElem.classList.add("list-item");
+  const listItemElem = document.createElement('li');
+  listItemElem.classList.add('list-item');
   const checkboxElem = createCheckbox({ done, id });
   if (done) {
-    listItemElem.classList.add("list-item_done");
+    listItemElem.classList.add('list-item_done');
   }
 
-  const textElem = document.createElement("span");
-  textElem.classList.add("list-item__text");
+  const textElem = document.createElement('span');
+  textElem.classList.add('list-item__text');
   textElem.textContent = text;
 
-  const deleteBtnElem = document.createElement("button");
-  deleteBtnElem.classList.add("list-item__delete-btn");
-  deleteBtnElem.setAttribute("data-id", id);
+  const deleteBtnElem = document.createElement('button');
+  deleteBtnElem.classList.add('list-item__delete-btn');
+  deleteBtnElem.setAttribute('data-id', id);
   listItemElem.append(checkboxElem, textElem, deleteBtnElem);
 
   return listItemElem;
 };
 
 export const renderTasks = () => {
-  const tasksList = getItem("tasksList") || [];
+  const tasksList = getItem('tasksList') || [];
 
-  listElem.innerHTML = "";
+  listElem.innerHTML = '';
   const tasksElems = tasksList
     .sort((a, b) => {
       if (a.done - b.done !== 0) return a.done - b.done;

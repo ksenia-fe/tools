@@ -1,10 +1,10 @@
-import { renderTasks } from "./render";
-import { getItem, setItem } from "./storage";
-import { updateTask, getTasksList, deleteTask } from "./tasksGateway";
+import { renderTasks } from './render';
+import { getItem, setItem } from './storage';
+import { updateTask, getTasksList, deleteTask } from './tasksGateway';
 
 export const changeTask = (e) => {
   const taskId = e.target.dataset.id;
-  const tasksList = getItem("tasksList");
+  const tasksList = getItem('tasksList');
   const { text, createDate } = tasksList.find((task) => task.id === taskId);
   const done = e.target.checked;
 
@@ -18,20 +18,20 @@ export const changeTask = (e) => {
   updateTask(taskId, updatedTask)
     .then(() => getTasksList())
     .then((newTasksList) => {
-      setItem("tasksList", newTasksList);
+      setItem('tasksList', newTasksList);
       renderTasks();
     });
 };
 
 export const deleteTaskfunc = (e) => {
-  const isDelete = e.target.classList.contains("list-item__delete-btn");
+  const isDelete = e.target.classList.contains('list-item__delete-btn');
 
   if (!isDelete) {
     return;
   }
 
   const taskId = e.target.dataset.id;
-  const tasksList = getItem("tasksList");
+  const tasksList = getItem('tasksList');
   const { text, createDate } = tasksList.find((task) => task.id === taskId);
   const done = e.target.checked;
 
@@ -45,14 +45,14 @@ export const deleteTaskfunc = (e) => {
   deleteTask(taskId, updatedTask)
     .then(() => getTasksList())
     .then((newTasksList) => {
-      setItem("tasksList", newTasksList);
+      setItem('tasksList', newTasksList);
       renderTasks();
     });
 };
 
 export const doneOrDelete = (e) => {
-  const checkboxEl = e.target.classList.contains("list-item__checkbox");
-  const deleteEl = e.target.classList.contains("list-item__delete-btn");
+  const checkboxEl = e.target.classList.contains('list-item__checkbox');
+  const deleteEl = e.target.classList.contains('list-item__delete-btn');
 
   if (checkboxEl) {
     changeTask(e);
