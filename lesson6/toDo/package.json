@@ -6,7 +6,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "webpack --mode=production",
-    "start": "webpack-serve --mode=development --devtool eval-source-map --open"
+    "start": "webpack-dev-server --mode=development --devtool eval-source-map --open"
   },
   "author": "",
   "license": "ISC",
